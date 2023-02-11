@@ -6,9 +6,9 @@ function App() {
   const Outlet = useRoutes(router)
   return (
     <div className="App">
-      <Link to="/home">Home</Link>
+      {/* <Link to="/home">Home</Link>
       <Link to="/about">About</Link>
-      <Link to="/user">User</Link>
+      <Link to="/user">User</Link> */}
       {Outlet}
     </div>
   )
