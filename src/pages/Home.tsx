@@ -11,6 +11,7 @@ import {
 } from '@ant-design/icons';
 import { Breadcrumb, MenuProps } from 'antd';
 import { Layout, Menu, theme } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -33,7 +34,11 @@ const View: React.FC = () => {
     const {
         token: { colorBgContainer },
     } = theme.useToken();
-
+    const navigateTo = useNavigate();
+    const menuClick = (e: { key: string }) => {
+        console.log('console.log test', e.key);
+        navigateTo(e.key);
+    }
     return (
         <Layout hasSider>
             <Sider
@@ -47,7 +52,7 @@ const View: React.FC = () => {
                 }}
             >
                 <div style={{ height: 32, margin: 16, background: 'rgba(255, 255, 255, 0.2)' }} />
-                <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+                <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} onClick={menuClick} />
             </Sider>
             <Layout className="site-layout" style={{ marginLeft: 200 }}>
                 <Header className='site-layout-background' style={{ paddingLeft: '16px', background: colorBgContainer }}>
